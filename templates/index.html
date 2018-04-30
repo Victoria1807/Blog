@@ -5,6 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>All works!</h1>
+    <h1>{{ title }} works!</h1>
+    {% for obj in objects_list %}
+        <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a><br>
+        {{ obj.content }}<br>
+        {{ obj.timestamp }}<br>
+        {{ obj.updated }}<br>
+        {{ obj.id }}<br>
+    {% endfor %}
 </body>
 </html>
