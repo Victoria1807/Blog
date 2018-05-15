@@ -22,5 +22,23 @@
 
 {% endfor %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if objects_list.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ objects_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ objects_list.number }} of {{ objects_list.paginator.num_pages }}.
+        </span>
+
+        {% if objects_list.has_next %}
+            <a href="?{{ page_request_var }}={{ objects_list.next_page_number }}">next</a>
+            <a href="?{{ page_request_var }}={{ objects_list.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
 </div>
 {% endblock content %}
