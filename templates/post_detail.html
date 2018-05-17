@@ -11,6 +11,16 @@
     {% endif %}
     <h1>{{ instance.title }} <small>{{ instance.timestamp }}</small></h1>
 
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+    Facebook
+    </a>
+
+    <a href="https://twitter.com/home?status={{ share_link }}%20{{ request.build_absolute_uri }}">
+    Twitter
+    </a>
+
+    <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Google+</a>
+
     {{ instance.content|linebreaks }}<br>
 
 </div>
