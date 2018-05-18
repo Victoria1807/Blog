@@ -10,8 +10,7 @@
     {% if instance.image %}
     <img src="{{ instance.image.url }}" class="img-responsive">
     {% endif %}
-    <h1>{{ instance.title }} <small>{% if instance.draft %}
-        <span style="color: red;">Draft</span> {% endif %} {{ instance.publish }}</small></h1>
+    <h1>{{ instance.title }} <small>{{ instance.timestamp }}</small></h1>
     {% if instance.user.get_full_name %}
     <p>Author: {{ instance.user.get_full_name }}</p>
     {% endif %}
@@ -41,6 +40,7 @@
     {{ instance.content|linebreaks }}
 
     <hr/>
+    <br/>
     <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
 
     </div>
