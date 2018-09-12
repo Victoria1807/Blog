@@ -12,6 +12,7 @@ from comments.forms import CommentForm
 from comments.models import Comment
 from .forms import PostForm
 from .models import Post
+from .utils import get_read_time
 
 def post_create(request):
     if not request.user.is_staff or not request.user.is_superuser:
@@ -39,6 +40,8 @@ def post_detail(request, slug=None):
         if not request.user.is_staff or not request.user.is_superuser:
             raise Http404
     share_string = quote_plus(instance.content)
+
+    print(get_read_time(instance.get_markdown()))
 
     initial_data = {
         "content_type": instance.get_content_type,
